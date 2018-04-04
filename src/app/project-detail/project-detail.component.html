@@ -1,3 +1,7 @@
-<p>
-  project-detail works!
-</p>
+<div class="card">
+  <h2>{{(projectToDisplay | async)?.name}}</h2>
+  <h4>By {{(projectToDisplay | async)?.starters}}</h4>
+  <p>Project Details: {{(projectToDisplay | async)?.description}}</p>
+  <p>Fundraising Goal: ${{(projectToDisplay | async)?.goal}}</p>
+  <p>Reward for contributing: {{(projectToDisplay | async)?.rewards}}</p>
+</div>
