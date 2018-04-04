@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ProjectService } from '../project.service';
+import { Project } from '../models/project.model';
 
 @Component({
   selector: 'app-project-add',
   templateUrl: './project-add.component.html',
-  styleUrls: ['./project-add.component.css']
+  styleUrls: ['./project-add.component.css'],
+  providers: [ProjectService]
 })
-export class ProjectAddComponent implements OnInit {
+export class ProjectAddComponent {
 
-  constructor() { }
+  constructor(private projectService: ProjectService) { }
 
-  ngOnInit() {
+  submitForm(name: string, starters: string, description: string, goal, rewards: string) {
+    let startersArray = starters.split(',');
+    let newProject: Project = new Project( name, startersArray, description, parseInt(goal), rewards);
+    this.projectService.addProject(newProject);
   }
 
 }

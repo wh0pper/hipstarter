@@ -29,6 +29,9 @@
       <br>
       <input #newReward>
     </div>
+    <br>
+
+    <button class="btn btn-success" (click)="submitForm(newName.value, newStarters.value, newDescription.value, newGoal.value, newReward.value); newName.value=''; newStarters.value=''; newDescription.value=''; newDescription.value=''; newReward.value=''">Submit</button>
 
   </div>
 
