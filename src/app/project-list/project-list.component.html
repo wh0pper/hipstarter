@@ -1,3 +1,7 @@
-<p>
-  project-list works!
-</p>
+<h2>Projects</h2>
+<div *ngFor="let project of projects | async" class="card card-default">
+  <div class="card-body">
+    <h3 (click)="gotoDetailPage(project)"><em>{{project.name}}</em></h3>
+    <p>{{project.description}}</p>
+  </div>
+</div>
