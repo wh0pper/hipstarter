@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from 'angularfire2'
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FormsModule }  from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { routing } from './app.routing';
@@ -12,6 +13,7 @@ import { ProjectEditComponent } from './project-edit/project-edit.component';
 import { ProjectDetailComponent } from './project-detail/project-detail.component';
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { masterFirebaseConfig } from './api-keys';
+import { AuthenticationService } from './authentication/authentication.service';
 
 export const firebaseConfig = {
   apikey: masterFirebaseConfig.apiKey,
@@ -34,9 +36,13 @@ export const firebaseConfig = {
     HttpModule,
     routing,
     AngularFireModule.initializeApp(firebaseConfig),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireAuthModule
   ],
-  providers: [ProjectService],
+  providers: [
+    ProjectService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

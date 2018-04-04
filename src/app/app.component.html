@@ -6,6 +6,9 @@
     <ul class="nav navbar-nav navbar-right">
       <li><a routerLink="">Projects</a></li>
       <li><a routerLink="new">Create a new project</a></li>
+      <li *ngIf="isLoggedIn"><a>{{userName}}</a><a (click)="logout()">Log out</a>
+     </li>
+     <li *ngIf ="!isLoggedIn"><a (click)="login()">Log in</a></li>
     </ul>
   </div>
 </nav>
