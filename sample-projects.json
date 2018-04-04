@@ -1,6 +1,7 @@
 { "projects": [{
   "name": "I need a gyro",
   "starters": ["Bill", "Jerry"],
+  "summary": "New foodcart",
   "description": "We need money to open a Gyro foodcart in Portland.",
   "goal": "10000",
   "rewards": "Donations over $100 will get a free Gyro when the cart opens."
@@ -8,14 +9,16 @@
 {
   "name": "Cat Fancy",
   "starters": ["Kitty", "Johnny"],
+  "summary": "Cat bowtie",
   "description": "Bowties for cats.",
   "goal": "1000",
   "rewards": "Free cuddles from Spike."
 },
 {
-  "name": "The Cat's Meow",
+  "name": "Scooby Snacks",
   "starters": ["Kitty", "Johnny"],
-  "description": "Artisinal food for your pampered pet..",
+  "summary": "Foodcart for pets",
+  "description": "Artisinal food for your pampered pet.",
   "goal": "15000",
   "rewards": "Cat if you donate $1000."
 }]

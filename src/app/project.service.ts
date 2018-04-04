@@ -21,4 +21,9 @@ export class ProjectService {
   addProject(newProject) {
     this.projects.push(newProject);
   }
+
+  getLastProjectId() {
+    return this.database.list('projects');
+
+  }
 }
