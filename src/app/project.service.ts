@@ -8,7 +8,7 @@ export class ProjectService {
   projects: FirebaseListObservable<any[]>;
 
   constructor(private database: AngularFireDatabase, private router: Router) {
-    this.projects = database.list('projects' {query: {orderByChild: 'progress'}});
+    this.projects = database.list('projects', {query: {orderByChild: 'progress'}});
   }
 
   getProjects() {
