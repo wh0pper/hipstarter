@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Project } from './models/project.model';
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class ProjectService {
   projects: FirebaseListObservable<any[]>;
 
-  constructor(private database: AngularFireDatabase) {
+  constructor(private database: AngularFireDatabase, private router: Router) {
     this.projects = database.list('projects');
   }
 
@@ -30,11 +31,11 @@ export class ProjectService {
     console.log(localUpdatedProject.$key);
     let projectInFirebase = this.getProjectById(localUpdatedProject.$key);
     projectInFirebase.update({name: localUpdatedProject.name
-                              // starters: localUpdatedProject.starters,
-                              // summary: localUpdatedProject.summary,
-                              // description: localUpdatedProject.description,
-                              // goal: localUpdatedProject.goal,
-                              // rewards: localUpdatedProject.rewards,
+                              starters: localUpdatedProject.starters,
+                              summary: localUpdatedProject.summary,
+                              description: localUpdatedProject.description,
+                              goal: localUpdatedProject.goal,
+                              rewards: localUpdatedProject.rewards,
                             });
   }
 
@@ -42,6 +43,7 @@ export class ProjectService {
     localProject.subscribe(data => {
       let projectInFirebase = this.getProjectById(data.$key);
       projectInFirebase.remove();
-    })
+    });
+    this.router.navigate(['']);
   }
 }
