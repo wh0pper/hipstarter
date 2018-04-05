@@ -1,22 +1,23 @@
-<!-- <div class="card">
+<div class="card">
+<h4>Edit Project</h4>
   <label>Name:</label>
-  <input value="{{(projectToEdit | async)?.name}}">
+  <input [(ngModel)]="currentProjectObject.name">
   <label>Owners:</label>
-  <input value="{{(projectToEdit | async)?.starters}}">
+  <input [(ngModel)]="currentProjectObject.starters">
   <label>Project Details: </label>
-  <input value="{{(projectToEdit | async)?.description}}">
+  <input [(ngModel)]="currentProjectObject.description">
   <label>Fundraising Goal:</label>
-  <input value="{{(projectToEdit | async)?.goal}}">
+  <input [(ngModel)]="currentProjectObject.goal">
   <label>Reward for contributing: </label>
-  <input value="{{(projectToEdit | async)?.rewards}}">
+  <input [(ngModel)]="currentProjectObject.rewards">
 </div>
 
-<button class="btn btn-success" (click)="updateProjectInDatabase(projectToEdit)">Save</button>
 
-<button class="btn btn-danger" (click)="deleteProjectFromDatabase(projectToEdit)">Delete</button> -->
 
-<h4>Edit Project</h4>
 
-<label>New Project Name:</label>
+<!-- <label>New Project Name:</label>
 <input [(ngModel)]="selectedProject.name">
-<br>
+<br> -->
+<button class="btn btn-success" (click)="updateProjectInDatabase(currentProjectObject)">Save</button>
+
+<button class="btn btn-danger" (click)="deleteProjectFromDatabase(currentProjectObject)">Delete</button>

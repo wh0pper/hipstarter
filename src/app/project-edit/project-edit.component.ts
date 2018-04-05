@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Project } from '../models/project.model';
 import { ProjectService } from '../project.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-project-edit',
@@ -10,10 +11,12 @@ import { ProjectService } from '../project.service';
 })
 export class ProjectEditComponent implements OnInit {
   @Input() selectedProject;
+  currentProjectObject: Project;
 
-  constructor(private projectService: ProjectService) {}
+  constructor(private router: Router, private projectService: ProjectService) {}
 
   ngOnInit() {
+    this.selectedProject.subscribe(data => this.currentProjectObject = data));
   }
 
   updateProjectInDatabase(projectToUpdate) {
@@ -21,10 +24,10 @@ export class ProjectEditComponent implements OnInit {
   }
 
   deleteProjectFromDatabase(projectToDelete) {
-    console.log('project:',projectToDelete.$key);
     if(confirm("Are you sure you want to delete this project?")){
       this.projectService.deleteProject(projectToDelete);
     }
+    this.router.navigate(['']);
   }
 
 }
