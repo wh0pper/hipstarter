@@ -24,6 +24,21 @@ export class ProjectService {
 
   getLastProjectId() {
     return this.database.list('projects');
+  }
 
+  updateProject(localUpdatedProject) {
+    let projectInFirebase = this.getProjectById(localUpdatedProject.$key);
+    projectInFirebase.update({name: localUpdatedProject.name,
+                              starters: localUpdatedProject.starters,
+                              summary: localUpdatedProject.summary,
+                              description: localUpdatedProject.description,
+                              goal: localUpdatedProject.goal,
+                              rewards: localUpdatedProject.rewards,
+                            });
+  }
+
+  deleteProject(localProject) {
+    let projectInFirebase = this.getProjectById(localProject.$key);
+    projectInFirebase.remove();
   }
 }

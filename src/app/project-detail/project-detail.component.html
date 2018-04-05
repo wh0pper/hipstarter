@@ -5,3 +5,6 @@
   <p>Fundraising Goal: ${{(projectToDisplay | async)?.goal}}</p>
   <p>Reward for contributing: {{(projectToDisplay | async)?.rewards}}</p>
 </div>
+<button class="btn btn-success" (click)="editCurrentProject()">Edit</button>
+
+<app-project-edit *ngIf="showEditForm" [selectedProject]="projectToDisplay"></app-project-edit>

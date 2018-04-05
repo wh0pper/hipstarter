@@ -14,6 +14,7 @@ import { FirebaseObjectObservable } from 'angularfire2/database';
 export class ProjectDetailComponent implements OnInit {
   projectId: string;
   projectToDisplay;
+  showEditForm: Boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -26,6 +27,12 @@ export class ProjectDetailComponent implements OnInit {
       this.projectId = urlParameters['id'];
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId);
+    console.log(this.projectToDisplay);
+  }
+
+  editCurrentProject() {
+    this.showEditForm = true;
+
   }
 
 }

@@ -14,6 +14,7 @@ import { ProjectDetailComponent } from './project-detail/project-detail.componen
 import { ProjectAddComponent } from './project-add/project-add.component';
 import { masterFirebaseConfig } from './api-keys';
 import { AuthenticationService } from './authentication/authentication.service';
+import { AdminComponent } from './admin/admin.component';
 
 export const firebaseConfig = {
   apiKey: masterFirebaseConfig.apiKey,
@@ -28,7 +29,8 @@ export const firebaseConfig = {
     ProjectListComponent,
     ProjectEditComponent,
     ProjectDetailComponent,
-    ProjectAddComponent
+    ProjectAddComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,

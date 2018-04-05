@@ -5,7 +5,7 @@
 ## By Sara Hamilton and Jared Clemmensen
 
 # Description
-This is an Epicodus practice project for week 4 of the JavaScript course.  Its purpose is to display understanding of Angular and Firebase.
+This is an Epicodus practice project for week 4 of the JavaScript course.  Its purpose is to display understanding of Angular and Firebase. 
 
 ## Technologies Used
 * HTML
