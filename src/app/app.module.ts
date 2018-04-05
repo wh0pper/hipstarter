@@ -16,7 +16,7 @@ import { masterFirebaseConfig } from './api-keys';
 import { AuthenticationService } from './authentication/authentication.service';
 
 export const firebaseConfig = {
-  apikey: masterFirebaseConfig.apiKey,
+  apiKey: masterFirebaseConfig.apiKey,
   authDomain: masterFirebaseConfig.authDomain,
   databaseURL: masterFirebaseConfig.databaseURL,
   storageBucket: masterFirebaseConfig.storageBucket

@@ -10,20 +10,20 @@ import { AuthenticationService } from './authentication/authentication.service';
 export class AppComponent {
   title = 'hipstarter';
   user;
-  // private isLoggedIn: Boolean;
-  // private userName: String;
+  private isLoggedIn: Boolean;
+  private userName: String;
 
-  // constructor(public authService: AuthenticationService) {
-  //   // this.authService.user.subscribe(user =>  {
-  //   //   console.log(user);
-  //   // });
-  // }
-  //
-  // login() {
-  //   this.authService.login();
-  // }
-  //
-  // logout() {
-  //   this.authService.logout();
-  // }
+  constructor(public authService: AuthenticationService) {
+    this.authService.user.subscribe(user =>  {
+      console.log(user);
+    });
+  }
+
+  login() {
+    this.authService.login();
+  }
+
+  logout() {
+    this.authService.logout();
+  }
 }
