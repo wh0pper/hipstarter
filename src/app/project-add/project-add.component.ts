@@ -15,6 +15,9 @@ export class ProjectAddComponent {
 
   submitForm(name: string, starters: string, summary: string, description: string, goal, rewards: string) {
     let startersArray = starters.split(',');
+    if (goal=='') {
+      goal = '0';
+    }
     let newProject: Project = new Project(name, startersArray, summary, description, parseInt(goal), rewards);
     this.projectService.addProject(newProject);
     this.navigateToNewProject();

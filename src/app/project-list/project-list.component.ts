@@ -12,10 +12,12 @@ import { FirebaseListObservable } from 'angularfire2/database';
   providers: [ProjectService]
 })
 export class ProjectListComponent implements OnInit {
+  projectsProgressArray: String[];
   projects: FirebaseListObservable<any[]>;
   // currentRoute: string = this.router.url;
 
-  constructor(private router: Router, private projectService: ProjectService) { }
+  constructor(private router: Router, private projectService: ProjectService) {
+  }
 
   ngOnInit() {
     this.projects = this.projectService.getProjects();
@@ -23,6 +25,11 @@ export class ProjectListComponent implements OnInit {
 
   goToDetailPage(clickedProject) {
     this.router.navigate(['projects', clickedProject.$key]);
+  }
+
+  returnPercentage(project) {
+    let styleString = (project.progress/project.goal * 100) + '%';
+    return styleString;
   }
 
 }

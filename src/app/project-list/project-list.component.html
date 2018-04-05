@@ -1,10 +1,12 @@
 <h2>Projects</h2>
 <div *ngFor="let project of projects | async" class="card card-default">
-  <div class="card-body">
-    <h3 (click)="goToDetailPage(project)"><em>{{project.name}}</em></h3>
+  <div class="card-body" (click)="goToDetailPage(project)">
+    <h3><em>{{project.name}}</em></h3>
     <p>{{project.description}}</p>
-    <!-- <div *ngIf="currentRoute === '/admin'"> -->
-      <!-- <app-project-edit [selectedProject]="project"></app-project-edit> -->
-    <!-- </div> -->
+    <p>Fundraising Progress: ${{project.progress}} / {{project.goal}}</p>
+
+    <div class="progress">
+      <div class="progress-bar" role="progressbar" [ngStyle]="{'width': returnPercentage(project)}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
   </div>
 </div>

@@ -16,7 +16,7 @@ export class ProjectEditComponent implements OnInit {
   constructor(private projectService: ProjectService) {}
 
   ngOnInit() {
-    this.selectedProject.subscribe(data => this.currentProjectObject = data));
+    this.selectedProject.subscribe(data => this.currentProjectObject = data);
   }
 
   updateProjectInDatabase(projectToUpdate) {

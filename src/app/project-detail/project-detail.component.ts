@@ -16,6 +16,7 @@ export class ProjectDetailComponent implements OnInit {
   projectId: string;
   projectToDisplay;
   showEditForm: Boolean = false;
+  admin: Boolean = false;
 
   constructor(
     private router: Router,
@@ -41,6 +42,22 @@ export class ProjectDetailComponent implements OnInit {
       this.projectService.deleteProject(this.projectToDisplay);
     }
     this.router.navigate(['']);
+  }
+
+  administerPrivileges() {
+    this.admin = true;
+  }
+
+  makeDonation(amount) {
+    this.projectService.updateProgressInDatabase(this.projectToDisplay, amount);
+  }
+
+  returnPercentage(project) {
+    let styleString = "";
+    project.subscribe(project => {
+      styleString = (project.progress/project.goal * 100) + '%';
+    });
+    return styleString;
   }
 
 }

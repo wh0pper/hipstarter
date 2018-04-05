@@ -30,7 +30,7 @@ export class ProjectService {
   updateProject(localUpdatedProject) {
     console.log(localUpdatedProject.$key);
     let projectInFirebase = this.getProjectById(localUpdatedProject.$key);
-    projectInFirebase.update({name: localUpdatedProject.name
+    projectInFirebase.update({name: localUpdatedProject.name,
                               starters: localUpdatedProject.starters,
                               summary: localUpdatedProject.summary,
                               description: localUpdatedProject.description,
@@ -45,5 +45,15 @@ export class ProjectService {
       projectInFirebase.remove();
     });
     this.router.navigate(['']);
+  }
+
+  updateProgressInDatabase(projectObservable, amount) {
+    let newAmount=0;
+    let projectInFirebase;
+    projectObservable.subscribe(data => {
+      projectInFirebase = this.getProjectById(data.$key);
+      newAmount = parseInt(data.progress) + parseInt(amount);
+    });
+    projectInFirebase.update({ progress: newAmount });
   }
 }

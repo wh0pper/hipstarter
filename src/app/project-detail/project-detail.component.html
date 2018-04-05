@@ -3,8 +3,29 @@
   <h4>By {{(projectToDisplay | async)?.starters}}</h4>
   <p>Project Details: {{(projectToDisplay | async)?.description}}</p>
   <p>Fundraising Goal: ${{(projectToDisplay | async)?.goal}}</p>
+  <p>Fundraising Progress: ${{(projectToDisplay | async)?.progress}}</p>
+
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" [ngStyle]="{'width': returnPercentage(projectToDisplay)}" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+
   <p>Reward for contributing: {{(projectToDisplay | async)?.rewards}}</p>
 </div>
-<button class="btn btn-success" (click)="editCurrentProject()">Edit</button>
-<button class="btn btn-danger" (click)="deleteCurrentProjectFromDatabase()">Delete</button>
-<app-project-edit *ngIf="showEditForm" [selectedProject]="projectToDisplay"></app-project-edit>
+<br>
+<h6>Fund this project!</h6>
+<label>Donation amount:</label>
+<input class="form control" type="number" #donationAmount>
+<button class="btn btn-success" (click)="makeDonation(donationAmount.value); donationAmount.value=''">Donate</button>
+
+<div *ngIf="admin==true">
+  <button class="btn btn-success" (click)="editCurrentProject()">Edit</button>
+  <button class="btn btn-danger" (click)="deleteCurrentProjectFromDatabase()">Delete</button>
+  <app-project-edit *ngIf="showEditForm" [selectedProject]="projectToDisplay"></app-project-edit>
+</div>
+
+
+<footer class="footer">
+  <div class="container">
+    <a class="text-muted" (click)="administerPrivileges()">Admin</a>
+  </div>
+</footer>
