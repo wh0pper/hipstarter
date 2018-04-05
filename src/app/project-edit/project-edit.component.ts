@@ -23,6 +23,4 @@ export class ProjectEditComponent implements OnInit {
     this.projectService.updateProject(projectToUpdate);
   }
 
-
-
 }

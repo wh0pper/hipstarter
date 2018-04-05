@@ -26,11 +26,11 @@ export class ProjectDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.showEditForm = false;
     this.route.params.forEach((urlParameters) => {
       this.projectId = urlParameters['id'];
     });
     this.projectToDisplay = this.projectService.getProjectById(this.projectId);
-    console.log(this.projectToDisplay);
   }
 
   editCurrentProject() {
@@ -45,7 +45,7 @@ export class ProjectDetailComponent implements OnInit {
   }
 
   administerPrivileges() {
-    this.admin = true;
+    this.admin = !this.admin;
   }
 
   makeDonation(amount) {
