@@ -39,7 +39,9 @@ export class ProjectService {
   }
 
   deleteProject(localProject) {
-    let projectInFirebase = this.getProjectById(localProject.$key);
-    projectInFirebase.remove();
+    localProject.subscribe(data => {
+      let projectInFirebase = this.getProjectById(data.$key);
+      projectInFirebase.remove();
+    })
   }
 }
